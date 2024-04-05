@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import "./userInput.scss";
 
 export const UserInput = () => {
   const [currentList, setCurrentList] = useState<string[]>([]);
@@ -16,11 +17,11 @@ export const UserInput = () => {
   }, [currentList]);
   return (
     <article>
-      <input type="text" name="" id="" ref={inputRef} />
+      <input maxLength={20} type="text" name="" id="" ref={inputRef} />
       <button className="add-to-list" onClick={addTextToList}>
         Add to list
       </button>
-      <ul>
+      <ul className="list">
         {currentList.map((item, index) => (
           <li key={index}>{item}</li>
         ))}

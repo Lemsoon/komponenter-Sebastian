@@ -1,13 +1,47 @@
+@import "../scss/colors.scss";
+
 article {
   width: 100%;
   height: 100%;
-  .add-to-list {
-    margin-left: 1rem;
+  .user-interaction {
+    width: 15%;
+    min-height: 2rem;
+    height: auto;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    .input-button {
+    }
+    span {
+      color: red;
+    }
+    .add-to-list {
+      margin-left: 1rem;
+    }
+    .add-to-list:hover {
+      background-color: rgb(215, 215, 215);
+    }
   }
+
   .list {
-    border: 0.1rem solid;
+    border: 0.1rem solid $secondary;
     width: 10%;
     min-height: 2rem;
-    list-style: none;
+    list-style: decimal;
+    li {
+      transition: 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 0.01rem solid $secondary;
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.4rem;
+      }
+    }
+    li:hover {
+      scale: 1.05;
+    }
   }
 }

@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./userInput.scss";
 
-export const UserInput = () => {
+export const UserInput = ({ children }: any) => {
   const [currentList, setCurrentList] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const addTextToList = () => {
     console.log(currentList);
-    if (inputRef.current) {
+    if (inputRef.current && inputRef.current.value.length > 0) {
       setCurrentList((prevList) => [...prevList, inputRef.current!.value]);
     }
   };
@@ -17,7 +17,7 @@ export const UserInput = () => {
   }, [currentList]);
   return (
     <article>
-      <input maxLength={20} type="text" name="" id="" ref={inputRef} />
+      <input maxLength={20} type="text" name="" id="" ref={inputRef} placeholder={children} />
       <button className="add-to-list" onClick={addTextToList}>
         Add to list
       </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./userInput.scss";
 
 export const UserInput = ({ children }: any) => {
@@ -22,9 +22,11 @@ export const UserInput = ({ children }: any) => {
         Add to list
       </button>
       <ul className="list">
-        {currentList.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {currentList.length === 0 ? (
+          <li>List is empty</li>
+        ) : (
+          currentList.map((item, index) => <li key={index}>{item}</li>)
+        )}
       </ul>
     </article>
   );
